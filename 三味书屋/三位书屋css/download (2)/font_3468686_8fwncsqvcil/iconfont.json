@@ -1,0 +1,23 @@
+{
+  "id": "3468686",
+  "name": "三位书屋",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1131",
+      "name": "资料库",
+      "font_class": "ziliaoku",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2380649",
+      "name": "排行",
+      "font_class": "paihang",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}
