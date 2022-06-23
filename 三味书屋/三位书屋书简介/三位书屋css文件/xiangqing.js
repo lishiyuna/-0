@@ -6,18 +6,18 @@ async function tun(index) {
     let { data } = await axios({
       method: "get",
       url: 'http://192.168.0.165:3005/books',
-      
+
       params: {
         id: index,
       }
     })
-   console.log(index);
+    console.log(index);
     console.log(data.data);
     // console.log(data.data[0].rate);
 
     xing(data)
     pop(data)
- 
+
   }
   catch (e) {
     console.log(e);
@@ -26,14 +26,16 @@ async function tun(index) {
 
 async function tu() {
   try {
-   
-    let {data:da}=await axios({
+
+    let { data: da } = await axios({
       method: "get",
-      url: 'http://192.168.0.165:3005/books'})
+      url: 'http://192.168.0.165:3005/books'
+    })
     //  shu(data)
-    
-     console.log(da);
-      po(da)
+
+    console.log(da);
+    po(da)
+
   }
   catch (e) {
     console.log(e);
@@ -43,39 +45,36 @@ async function tu() {
 console.log();
 let a = currUrl.split('=').slice(1)
 let b = Number(a)
- console.log(b);
-  tun(b)
-  console.log(currUrl);
-  if(currUrl.includes('id')){
+console.log(b);
+tun(b)
+console.log(currUrl);
+if (currUrl.includes('id')) {
   function pop(data) {
     // if(currUrl.has('id')){
     //   alert(111)
     // }
-  
-      console.log(data.data[0].coverImg);
-      $('.box>img').attr('src', data.data[0].coverImg)
-      $('#nie').html(data.data[0].name)
-      $('#rong').html(data.data[0].author)
-      $('#jie').html(data.data[0].desc)
-      $('input').val(data.data[0].name)
-      $('.sousuo').val(data.data[0].name)
 
-     
-    
-   
-  }}
-  else{
-    tu()
-    function po(da) {
-      console.log(da.data[0].coverImg);
+    console.log(data.data[0].coverImg);
+    $('.box>img').attr('src', data.data[0].coverImg)
+    $('#nie').html(data.data[0].name)
+    $('#rong').html(data.data[0].author)
+    $('#jie').html(data.data[0].desc)
+    $('input').val(data.data[0].name)
+    $('.sousuo').val(data.data[0].name)
+  }
+}
+else {
+  tu()
+  function po(da) {
+    console.log(da.data[0].coverImg);
     $('.box>img').attr('src', da.data[0].coverImg)
     $('#nie').html(da.data[0].name)
     $('#rong').html(da.data[0].author)
     $('#jie').html(da.data[0].desc)
     $('input').val(da.data[0].name)
     $('.sousuo').val(da.data[0].name)
-    }
   }
+}
 // function shu(data) {
 //   // console.log(ren);
 //   $('.btn').click(function () {
@@ -111,6 +110,9 @@ let b = Number(a)
 
 // }
 
+
+ console.log([...currUrl]);
+
 function xing(data) {
   console.log(data.data[0].rate);
   let a = data.data[0].rate
@@ -129,6 +131,26 @@ function xing(data) {
   });
 }
 
+$('.input-group-addon').click(function () {
+  // alert(111)
+  async function tu(val) {
+    try {
+      let { data: da } = await axios({
+        method: "get",
+        url: 'http://192.168.0.165:3005/books',
+        params: {
+          name_like: val
+        }
+      }
+      )
+     // console.log(da.data[0].id);
+      location.assign('file:///D:/visurl/%E6%89%80%E6%9C%89%E8%B5%84%E6%BA%90/%E4%B8%89%E5%91%B3%E4%B9%A6%E5%B1%8B/%E4%B8%89%E4%BD%8D%E4%B9%A6%E5%B1%8B%E4%B9%A6%E7%AE%80%E4%BB%8B/xiangqing.html?id='+ da.data[0].id)
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
 
-// console.log([...currUrl]);
+  tu(`${$('.sousuo').val()}`)
+})
 

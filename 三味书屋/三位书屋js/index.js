@@ -25,7 +25,6 @@ async function fun() {
       console.log(data1.data);
     paixu(data1)
 
-
     //获取模糊化搜索的内容
     // async function shuwu(value) {
     //   let { data: ren } = await axios({
@@ -72,7 +71,7 @@ function shu(ren) {
         console.log(ren.data);
         $('.kaung').html(`${ren.data[0].name}作者:${ren.data[0].author}`)
         console.log(ren.data[0].id);
-        $('.bo>a').attr('href',`../三位书屋书简介/index.html?id=${ren.data[0].id}`)
+        $('.bo>a').attr('href',`../三位书屋书简介/xiangqing.html?id=${ren.data[0].id}`)
         
         // console.log($('.sr-only').val());
 
@@ -96,7 +95,7 @@ function tushu(data) {
     let a = data.data.data
     let ren = $(`
         <div class="swiper-slide">
-        <a href="../三位书屋书简介/index.html?id=${a[item].id}">
+        <a href="../三位书屋书简介/xiangqing.html?id=${a[item].id}">
         <img src="${a[item].coverImg}" alt="" calss="tuimg"></a>
         </div>
       `)
@@ -128,7 +127,7 @@ function paixu(data1) {
   for (let item in data) {
      console.log(data[item].id);
     let img = $(`
-      <a href="../三位书屋书简介/index.html?id=${data[item].id}">
+      <a href="../三位书屋书简介/xiangqing.html??id=${data[item].id}">
        <img src="${data[item].coverImg}" alt=""></a
 >`)
     $('.nav-ranking').append(img)
